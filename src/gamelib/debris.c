@@ -100,8 +100,8 @@ struct uv1deb* GenDebIndex(struct debkeydatatype_s* current_deb_key, struct debi
     deb->mx = emit.x;
     deb->my = emit.y;
     deb->mz = emit.z;
-    if (current_deb_key[0].genptr != NULL) {
-        (current_deb_key[0].genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key[0].gencode != NULL) {
+        (current_deb_key[0].gencode)(current_deb_key, debinfo, deb);
     }
     deb->x = deb->x + current_deb_key->toffx;
     deb->y = deb->y + current_deb_key->toffy;
@@ -144,8 +144,8 @@ inline struct uv1deb* GenDebIndexRadial(struct debkeydatatype_s* current_deb_key
     deb->mx = emit.x;
     deb->my = emit.y;
     deb->mz = emit.z;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     deb->x = deb->x + current_deb_key->toffx;
     deb->y = deb->y + current_deb_key->toffy;
@@ -189,8 +189,8 @@ inline struct uv1deb* GenDebIndexRadialRotor(struct debkeydatatype_s* current_de
     deb->mx = local_60.x;
     deb->my = local_60.y;
     deb->mz = local_60.z;
-    if (current_deb_key->genptr != NULL) {
-        (*current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (*current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     deb->x = deb->x + current_deb_key->toffx;
     deb->y = deb->y + current_deb_key->toffy;
@@ -248,8 +248,8 @@ inline struct uv1deb* GenDebIndexSpheroid(struct debkeydatatype_s* current_deb_k
     deb->mx = emit.x;
     deb->my = emit.y;
     deb->mz = emit.z;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     deb->x = deb->x + current_deb_key->toffx;
     deb->y = deb->y + current_deb_key->toffy;
@@ -315,8 +315,8 @@ inline struct uv1deb* GenDebIndexBounceY(struct debkeydatatype_s* current_deb_ke
         
     }
     
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     current_deb_key->pointer++;
     deb->x = deb->x + current_deb_key->toffx;
@@ -394,8 +394,8 @@ inline struct uv1deb* GenDebIndexBounceXZ(struct debkeydatatype_s* current_deb_k
         );
         freechunkcontrolsptr++;
     }
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     current_deb_key->pointer++;
     deb->x = deb->x + current_deb_key->toffx;
@@ -425,8 +425,8 @@ GenDebIndexPos(struct debkeydatatype_s* current_deb_key, struct debinftype* debi
     deb->mx = (float)randy() * debinfo->rvx + debinfo->ovx;
     deb->my = (float)randy() * debinfo->rvy + debinfo->ovy;
     deb->mz = (float)randy() * debinfo->rvz + debinfo->ovz;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     if (debinfo->DmaDebTypePointer == NULL) {
         GenericDebinfoDmaTypeUpdate(debinfo);
@@ -458,8 +458,8 @@ GenDebIndexPosRandTime(struct debkeydatatype_s* current_deb_key, struct debinfty
     deb->mx = (float)randy() * debinfo->rvx + debinfo->ovx;
     deb->my = (float)randy() * debinfo->rvy + debinfo->ovy;
     deb->mz = (float)randy() * debinfo->rvz + debinfo->ovz;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     if (debinfo->DmaDebTypePointer == NULL) {
         GenericDebinfoDmaTypeUpdate(debinfo);
@@ -487,8 +487,8 @@ inline struct uv1deb* GenDebIndexWaterFall(struct debkeydatatype_s* current_deb_
     deb->mz = deb->z * 1.5f + dist * NuTrigTable[46384];
     deb->y = (float)randy() * debinfo->rsy + debinfo->osy;
     deb->my = (float)randy() * debinfo->rvy + debinfo->ovy;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     if (debinfo->DmaDebTypePointer == NULL) {
         GenericDebinfoDmaTypeUpdate(debinfo);
@@ -515,8 +515,8 @@ inline struct uv1deb* GenDebIndexWaterFallSplash(struct debkeydatatype_s* curren
     deb->mz = deb->z * 2;
     deb->y = (randy()* debinfo->rsy) + debinfo->osy;
     deb->my = (randy() * debinfo->rvy) + debinfo->ovy;
-    if (current_deb_key->genptr != NULL) {
-        (current_deb_key->genptr)(current_deb_key, debinfo, deb);
+    if (current_deb_key->gencode != NULL) {
+        (current_deb_key->gencode)(current_deb_key, debinfo, deb);
     }
     if (debinfo->DmaDebTypePointer == NULL) {
         GenericDebinfoDmaTypeUpdate(debinfo);
@@ -741,8 +741,8 @@ void DebReAlloc2(struct debkeydatatype_s *debkey) {
           for (i = 0; i < newchunksneeded; i++) {
             debkey->chunks[i + debkey->count] = freedebchunks[i + freedebchkptr];
             for (j = 0; j < 0x20; j++) {
-              (debkey->chunks[i + debkey->count]->debris[j].y) = 0.0f;
-              (debkey->chunks[i + debkey->count]->debris[j].my) =  32768.0f;
+              (debkey->chunks[i + debkey->count]->debris[j].time) = 0.0f;
+              (debkey->chunks[i + debkey->count]->debris[j].etime) =  32768.0f;
             }
           }
         if (debkey->count == 0) {
